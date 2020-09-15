@@ -34,11 +34,7 @@ const validAnagram1 = (str1, str2) => {
   return true;
 };
 
-const time1 = performance.now();
 console.log(validAnagram1('anagram', 'naargma'));
-const time2 = performance.now();
-
-console.log(`Time Elapsed: ${(time2 - time1) / 1000} seconds.`);
 
 // method with 2 loops, 1 obj and destroying data when checking
 function validAnagram2(first, second) {
@@ -63,8 +59,4 @@ function validAnagram2(first, second) {
   return true;
 }
 
-const time3 = performance.now();
 console.log(validAnagram2('anagram', 'naargma'));
-const time4 = performance.now();
-
-console.log(`Time Elapsed: ${(time4 - time3) / 1000} seconds.`);
