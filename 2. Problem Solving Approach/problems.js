@@ -1,7 +1,5 @@
-﻿/* eslint-disable consistent-return */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-/* eslint-disable no-use-before-define */
+﻿/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-plusplus */
 
 // UNDERSTAND THE PROBLEM
 // 1. Can I restate the problem in my own words?
@@ -45,7 +43,7 @@
 // Write a simplified solution
 // Then incorporate that difficulty back in
 
-function charCount(str) {
+function charCount1(str) {
   const result = {}; // make object to return at end
   for (let i = 0; i < str.length; i += 1) {
     // loop over string, for each character
@@ -61,4 +59,58 @@ function charCount(str) {
   }
   // return object at end
   return result;
+}
+// Another solution
+
+function charCount2(str) {
+  const obj = {};
+  for (let i = 0; i < str.length; i += 1) {
+    const char = str[i].toLowerCase();
+    if (/[a-z0-9]/.test(char)) {
+      if (obj[char] > 0) {
+        obj[char] += 1;
+      } else {
+        obj[char] = 1;
+      }
+    }
+  }
+  return obj;
+}
+// Refactoring;
+
+function charCount3(str) {
+  const obj = {};
+  for (let char of str) {
+    char = char.toLowerCase();
+    if (/[a-z0-9]/.test(char)) {
+      obj[char] = ++obj[char] || 1; // check if obj[char] exist
+    }
+  }
+  return obj;
+}
+
+// Refactor 2
+
+// charCodeAt is more efficient than regexp
+function isAlphaNumeric(char) {
+  const code = char.charCodeAt(0);
+  if (
+    !(code > 47 && code < 58) && // numeric (0-9)
+    !(code > 64 && code < 91) && // upper case (A-Z)
+    !(code > 96 && code < 123) // lower case (a-z)
+  ) {
+    return false;
+  }
+  return true;
+}
+
+function charCount4(str) {
+  const obj = {};
+  for (let char of str) {
+    if (isAlphaNumeric(char)) {
+      char = char.toLowerCase();
+      obj[char] = ++obj[char] || 1; // check if obj[char] exist
+    }
+  }
+  return obj;
 }
