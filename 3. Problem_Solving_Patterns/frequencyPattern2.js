@@ -2,7 +2,9 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 
-// Frequency Pattern
+// Frequency Pattern 2
+// Given two strings, write a function to determine if the second string is an anagram of the first.
+// An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
 
 const validAnagram1 = (str1, str2) => {
   if (str1.length !== str2.length) {
