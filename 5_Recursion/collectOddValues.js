@@ -1,6 +1,6 @@
 ﻿// with helper method
 const collectOddValues1 = (arr) => {
-  let result = [];
+  const result = [];
 
   const helper = (helperArr) => {
     if (helperArr.length === 0) {
