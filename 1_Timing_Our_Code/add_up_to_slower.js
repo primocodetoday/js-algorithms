@@ -6,7 +6,6 @@ function addUpTo(n) {
   return total;
 }
 
-const t1 = performance.now();
+console.time('slower');
 addUpTo(1000000000);
-const t2 = performance.now();
-console.log(`Time Elapsed: ${(t2 - t1) / 1000} seconds.`);
+console.time('slower');

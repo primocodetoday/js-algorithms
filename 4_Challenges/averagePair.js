@@ -12,9 +12,7 @@ const averagePair = (arr, b) => {
   let end = arr.length - 1;
 
   while (start < end) {
-    const avg = Number.parseFloat(
-      (arr[start] + arr[end]) / 2,
-    ).toFixed(1);
+    const avg = Number.parseFloat((arr[start] + arr[end]) / 2).toFixed(1);
     if (avg < b) {
       start++;
     } else if (avg > b) {
