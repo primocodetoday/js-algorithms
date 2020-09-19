@@ -5,4 +5,4 @@
   return -1;
 };
 
-console.log(binarySearch([3, 1, 5, 12, 7, 2, 8, 6, 4], 7));
+console.log(linearSearch([3, 1, 5, 12, 7, 2, 8, 6, 4], 7));
