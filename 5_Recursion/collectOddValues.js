@@ -19,7 +19,7 @@ const collectOddValues1 = (arr) => {
   return result;
 };
 
-// console.log(collectOddValues1([1, 2, 3, 4, 5]));
+console.log(collectOddValues1([1, 2, 3, 4, 5]));
 
 // pure recursion
 const collectOddValues2 = (arr) => {

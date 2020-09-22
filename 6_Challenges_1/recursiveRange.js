@@ -1,9 +1,9 @@
-﻿const recursiveRange = (nr) => {
+﻿const productOfArray = (nr) => {
   if (nr === 0) return 0;
-  return nr + recursiveRange(nr - 1);
+  return nr + productOfArray(nr - 1);
 };
 
-console.log(recursiveRange(6));
-console.log(recursiveRange(10));
+console.log(productOfArray(6));
+console.log(productOfArray(10));
 
 // 0 + 1 + 2 + 3 + 4 + 5 + 6

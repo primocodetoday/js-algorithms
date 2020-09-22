@@ -2,11 +2,11 @@
 // The function should return the power of the base to the exponent.
 //  This function should mimic the functionality of Math.pow
 
-const factorial = (base, pow) => {
+const power = (base, pow) => {
   if (pow === 0) return 1;
-  return base * factorial(base, pow - 1);
+  return base * power(base, pow - 1);
 };
 
-console.log(factorial(2, 0));
-console.log(factorial(2, 2));
-console.log(factorial(2, 4));
+console.log(power(2, 0));
+console.log(power(2, 2));
+console.log(power(2, 4));
