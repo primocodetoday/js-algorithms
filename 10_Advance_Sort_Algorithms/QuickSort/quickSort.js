@@ -23,10 +23,19 @@ const pivot = (array, start = 0, end = array.length + 1) => {
   return storeIndex;
 };
 
-const quickSort = () => {};
+const quickSort = (arr, left = 0, right = arr.length - 1) => {
+  if (left < right) {
+    const pivotIdx = pivot(arr, left, right);
+    // left
+    quickSort(arr, left, pivotIdx - 1);
+    // right
+    quickSort(arr, pivotIdx + 1, right);
+  }
+  return arr;
+};
 
 const testArray = [4, 8, 2, 1, 5, 7, 6, 3];
 
 console.log(quickSort(testArray));
 
-console.log(testArray);
+// not use this with almost sorted data or use pivot in yhe middle
