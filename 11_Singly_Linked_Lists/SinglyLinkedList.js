@@ -50,6 +50,31 @@ class SinglyLinkedList {
     }
     return pivot;
   }
+
+  shift() {
+    if (!this.head) return undefined;
+
+    const temp = this.head;
+    this.head = temp.next;
+    this.length--;
+
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return temp;
+  }
+
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+      this.length = 1;
+    }
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+  }
 }
 
 const list = new SinglyLinkedList();
