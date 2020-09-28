@@ -29,6 +29,27 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  pop() {
+    if (!this.head) return undefined;
+    let pivot = this.head;
+    let newTail = pivot;
+
+    while (pivot.next) {
+      newTail = pivot;
+      pivot = pivot.next;
+    }
+
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return pivot;
+  }
 }
 
 const list = new SinglyLinkedList();
