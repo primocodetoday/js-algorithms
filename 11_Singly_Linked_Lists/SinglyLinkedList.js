@@ -70,10 +70,12 @@ class SinglyLinkedList {
       this.head = newNode;
       this.tail = this.head;
       this.length = 1;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
     }
-    newNode.next = this.head;
-    this.head = newNode;
     this.length++;
+    return this;
   }
 }
 
