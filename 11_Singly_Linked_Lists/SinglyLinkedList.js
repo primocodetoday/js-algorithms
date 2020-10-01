@@ -99,11 +99,51 @@ class SinglyLinkedList {
     }
     return false;
   }
+
+  insert(index, value) {
+    const newNode = new Node(value);
+    const nextNode = this.get(index);
+    const prevNode = this.get(index - 1);
+
+    switch (true) {
+      case index < 0 || index > this.length:
+        return false;
+      case index === this.length:
+        // !! makes return boolean
+        return !!this.push(value);
+      case index === 0:
+        return !!this.unshift(value);
+      default:
+    }
+    prevNode.next = newNode;
+    newNode.next = nextNode;
+    this.length++;
+    return true;
+  }
+
+  remove(index) {
+    const prevNode = this.get(index - 1);
+    const nextNode = this.get(index + 1);
+    const removeNode = this.get(index);
+
+    switch (true) {
+      case index < 0 || index >= this.length:
+        return undefined;
+      case index === this.length - 1:
+        return this.pop(index);
+      case index === 0:
+        return this.shift();
+      default:
+    }
+    prevNode.next = nextNode;
+    this.length--;
+    return removeNode.value;
+  }
 }
 
 const list = new SinglyLinkedList();
-list.push("I'm");
-list.push('a');
-list.push('Singly');
-list.push('Linked');
-list.push('List');
+list.push('1');
+list.push('2');
+list.push('3');
+list.push('4');
+list.push('5');
