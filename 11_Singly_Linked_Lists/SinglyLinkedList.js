@@ -10,7 +10,7 @@
 // first.next = new Node('there');
 // first.next.next = new Node('ya !!');
 
-class SinglyLinkedList {
+export class SinglyLinkedList {
   constructor() {
     this.head = 0;
     this.tail = 0;
@@ -156,10 +156,3 @@ class SinglyLinkedList {
     }
   }
 }
-
-const list = new SinglyLinkedList();
-list.push('1');
-list.push('2');
-list.push('3');
-list.push('4');
-list.push('5');
