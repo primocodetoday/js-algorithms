@@ -5,11 +5,6 @@
   }
 }
 
-// The bad way
-// const first = new Node('Hi');
-// first.next = new Node('there');
-// first.next.next = new Node('ya !!');
-
 export class SinglyLinkedList {
   constructor() {
     this.head = 0;

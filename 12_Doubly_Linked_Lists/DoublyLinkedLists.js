@@ -1,19 +1,7 @@
-﻿class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
-
-// The bad way
-// const first = new Node('Hi');
-// first.next = new Node('there');
-// first.next.next = new Node('ya !!');
-
-class DoublyLinkedList {
+﻿export class DoublyLinkedList {
   constructor() {
-    this.head = 0;
-    this.tail = 0;
+    this.head = null;
+    this.tail = null;
     this.length = 0;
   }
 
@@ -156,10 +144,3 @@ class DoublyLinkedList {
   //   }
   // }
 }
-
-const list = new DoublyLinkedList();
-list.push('1');
-list.push('2');
-list.push('3');
-list.push('4');
-list.push('5');

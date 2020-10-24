@@ -27,18 +27,19 @@ module.exports = {
 
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: [
-    '/node_modules/',
-    '<rootDir>/01_Timing_Our_Code/*.js',
-    '<rootDir>/02_Problem_Solving_Approach/*.js',
-    '<rootDir>/babel.config.js',
-    '<rootDir>/jest.config.js'
+    'node_modules',
+    '01_Timing_Our_Code',
+    '02_Problem_Solving_Approach',
+    'coverage',
+    'babel.config.js',
+    'jest.config.js',
   ],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
 
   // A list of reporter names that Jest uses when writing coverage reports
-  coverageReporters: ['text', 'html'],
+  coverageReporters: ['html'],
 
   // An object that configures minimum threshold enforcement for coverage results
   coverageThreshold: {
@@ -156,9 +157,7 @@ module.exports = {
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
-  // ],
+  testPathIgnorePatterns: ['node_modules', '<rootDir>*.js'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],

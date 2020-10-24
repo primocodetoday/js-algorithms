@@ -6,7 +6,7 @@
 // Given two strings, write a function to determine if the second string is an anagram of the first.
 // An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
 
-const validAnagram1 = (str1, str2) => {
+export const validAnagram1 = (str1, str2) => {
   if (str1.length !== str2.length) {
     return false;
   }
@@ -19,10 +19,8 @@ const validAnagram1 = (str1, str2) => {
   for (const val of str2) {
     frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
   }
-  console.log(frequencyCounter1);
-  console.log(frequencyCounter2);
-  // lets now compare the objects
 
+  // lets now compare the objects
   for (const key in frequencyCounter1) {
     if (!(key in frequencyCounter2)) {
       return false;
@@ -36,10 +34,8 @@ const validAnagram1 = (str1, str2) => {
   return true;
 };
 
-console.log(validAnagram1('anagram', 'naargma'));
-
 // method with 2 loops, 1 obj and destroying data when checking
-function validAnagram2(first, second) {
+export const validAnagram2 = (first, second) => {
   if (first.length !== second.length) {
     return false;
   }
@@ -49,7 +45,6 @@ function validAnagram2(first, second) {
     // if letter exists, increment, otherwise set to 1
     lookup[letter] ? lookup[letter]++ : (lookup[letter] = 1);
   }
-  console.log(lookup);
   for (let i = 0; i < second.length; i++) {
     const letter = second[i];
     // can't find letter or letter is zero then it's not an anagram {a:0} is falsy
@@ -59,6 +54,4 @@ function validAnagram2(first, second) {
     lookup[letter] -= 1;
   }
   return true;
-}
-
-console.log(validAnagram2('anagram', 'naargma'));
+};
