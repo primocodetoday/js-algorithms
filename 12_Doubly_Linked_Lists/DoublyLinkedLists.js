@@ -23,26 +23,24 @@ export class DoublyLinkedList {
     return this;
   }
 
-  // pop() {
-  //   if (!this.head) return undefined;
-  //   let pivot = this.head;
-  //   let newTail = pivot;
+  pop() {
+    if (!this.head) return undefined;
 
-  //   while (pivot.next) {
-  //     newTail = pivot;
-  //     pivot = pivot.next;
-  //   }
+    const popped = this.tail;
 
-  //   this.tail = newTail;
-  //   this.tail.next = null;
-  //   this.length--;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = popped.prev;
+      this.tail.next = null;
+      popped.prev = null;
+    }
 
-  //   if (this.length === 0) {
-  //     this.head = null;
-  //     this.tail = null;
-  //   }
-  //   return pivot;
-  // }
+    this.length--;
+
+    return popped;
+  }
 
   // shift() {
   //   if (!this.head) return undefined;
