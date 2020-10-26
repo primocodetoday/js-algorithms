@@ -36,51 +36,67 @@ export class DoublyLinkedList {
       this.tail.next = null;
       popped.prev = null;
     }
-
     this.length--;
 
     return popped;
   }
 
-  // shift() {
-  //   if (!this.head) return undefined;
+  shift() {
+    if (!this.head) return undefined;
 
-  //   const temp = this.head;
-  //   this.head = temp.next;
-  //   this.length--;
+    const oldHead = this.head;
 
-  //   if (this.length === 0) {
-  //     this.tail = null;
-  //   }
-  //   return temp;
-  // }
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = oldHead.next;
+      this.head.prev = null;
+      oldHead.next = null;
+    }
+    this.length--;
 
-  // unshift(value) {
-  //   const newNode = new Node(value);
-  //   if (!this.head) {
-  //     this.head = newNode;
-  //     this.tail = this.head;
-  //     this.length = 1;
-  //   } else {
-  //     newNode.next = this.head;
-  //     this.head = newNode;
-  //   }
-  //   this.length++;
-  //   return this;
-  // }
+    return oldHead;
+  }
 
-  // get(index) {
-  //   if (index < 0 || index >= this.length) return null;
+  unshift(value) {
+    const newNode = new Node(value);
 
-  //   let counter = 0;
-  //   let current = this.head;
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+      this.length = 1;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 
-  //   while (counter !== index) {
-  //     current = current.next;
-  //     counter++;
-  //   }
-  //   return current;
-  // }
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+
+    let counter = 0;
+    let current = this.head;
+
+    if (index <= this.length / 2) {
+      while (counter !== index) {
+        current = current.next;
+        counter++;
+      }
+    } else {
+      counter = this.length - 1;
+      current = this.tail;
+      while (counter !== index) {
+        current = current.prev;
+        counter--;
+      }
+    }
+
+    return current;
+  }
 
   // set(index, value) {
   //   const currentNode = this.get(index);
