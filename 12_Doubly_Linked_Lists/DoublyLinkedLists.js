@@ -98,35 +98,40 @@ export class DoublyLinkedList {
     return current;
   }
 
-  // set(index, value) {
-  //   const currentNode = this.get(index);
-  //   if (currentNode) {
-  //     currentNode.value = value;
-  //     return true;
-  //   }
-  //   return false;
-  // }
+  set(index, value) {
+    const currentNode = this.get(index);
+    if (currentNode) {
+      currentNode.value = value;
+      return true;
+    }
+    return false;
+  }
 
-  // insert(index, value) {
-  //   const newNode = new Node(value);
-  //   const nextNode = this.get(index);
-  //   const prevNode = this.get(index - 1);
+  insert(index, value) {
+    const newNode = new Node(value);
 
-  //   switch (true) {
-  //     case index < 0 || index > this.length:
-  //       return false;
-  //     case index === this.length:
-  //       // !! makes return boolean
-  //       return !!this.push(value);
-  //     case index === 0:
-  //       return !!this.unshift(value);
-  //     default:
-  //   }
-  //   prevNode.next = newNode;
-  //   newNode.next = nextNode;
-  //   this.length++;
-  //   return true;
-  // }
+    switch (true) {
+      case index < 0 || index > this.length:
+        return false;
+      case index === this.length:
+        // !! makes return boolean
+        return !!this.push(value);
+      case index === 0:
+        return !!this.unshift(value);
+      default:
+    }
+
+    const nextNode = this.get(index);
+    const prevNode = nextNode.prev;
+
+    prevNode.next = newNode;
+    nextNode.prev = newNode;
+    newNode.next = nextNode;
+    newNode.prev = prevNode;
+
+    this.length++;
+    return true;
+  }
 
   // remove(index) {
   //   const prevNode = this.get(index - 1);

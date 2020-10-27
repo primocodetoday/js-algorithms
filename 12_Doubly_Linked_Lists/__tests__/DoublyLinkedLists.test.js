@@ -1,4 +1,4 @@
-﻿import { DoublyLinkedList } from './DoublyLinkedLists';
+﻿import { DoublyLinkedList } from '../DoublyLinkedLists';
 
 describe('DoublyLinkedList Class works properly', () => {
   it('and creates new List', () => {
@@ -96,5 +96,54 @@ describe('DoublyLinkedList Class works properly', () => {
 
     expect(list.get(0)).toMatchObject({ value: 'A' });
     expect(list.get(4)).toMatchObject({ value: 'E' });
+  });
+
+  it('and set() works fine', () => {
+    const list = new DoublyLinkedList();
+
+    expect(list.set(0, 1)).toBe(false);
+
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
+
+    expect(list.set(0, 'a')).toBe(true);
+    expect(list.get(0)).toMatchObject({ value: 'a' });
+
+    expect(list.set(4, 'e')).toBe(true);
+    expect(list.get(4)).toMatchObject({ value: 'e' });
+  });
+
+  it('and insert() works fine', () => {
+    const list = new DoublyLinkedList();
+
+    expect(list.insert(-1, 'A')).toBe(false);
+    expect(list.insert(3, 'A')).toBe(false);
+
+    list.push('A');
+    list.push('B');
+
+    expect(list.insert(2, 'b')).toBe(true);
+
+    expect(list.insert(0, 'a')).toBe(true);
+
+    expect(list.insert(1, '$')).toBe(true);
+
+    // should be a<->$<->A<->B<->b at the end
+    expect(list.get(0)).toMatchObject({ value: 'a' });
+    expect(list.get(1)).toMatchObject({ value: '$' });
+    expect(list.get(2)).toMatchObject({ value: 'A' });
+    expect(list.get(3)).toMatchObject({ value: 'B' });
+    expect(list.get(4)).toMatchObject({ value: 'b' });
+
+    // testing connections
+    expect(list.head.value).toBe('a');
+    expect(list.head.next.value).toBe('$');
+    expect(list.head.next.next.value).toBe('A');
+    expect(list.tail.value).toBe('b');
+    expect(list.tail.prev.value).toBe('B');
+    expect(list.tail.prev.prev.value).toBe('A');
   });
 });

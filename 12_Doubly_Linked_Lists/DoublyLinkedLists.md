@@ -52,10 +52,19 @@ If the index is greater than half the length of the list
 Return the node once it is found
 
 ## Set pseudocode
-
+This function should accept a value and an index
+Use your get function to find the specific node.
+If the node is not found, return false
+If the node is found, set the value of that node to be the value passed to the function and return true
 
 ## Insert pseudocode
-
+If the index is less than zero or greater than or equal to the length return false
+If the index is 0, unshift
+If the index is the same as the length, push
+Use the get method to access the index -1
+Set the next and prev properties on the correct nodes to link everything together
+Increment the length
+Return true
 
 ## Remove pseudocode
 
