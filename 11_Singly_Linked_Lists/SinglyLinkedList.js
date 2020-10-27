@@ -127,7 +127,7 @@ export class SinglyLinkedList {
     }
     prevNode.next = nextNode;
     this.length--;
-    return removeNode.value;
+    return removeNode;
   }
 
   reverse() {
@@ -144,5 +144,6 @@ export class SinglyLinkedList {
       prevNode = currentNode;
       currentNode = nextNode;
     }
+    return this;
   }
 }

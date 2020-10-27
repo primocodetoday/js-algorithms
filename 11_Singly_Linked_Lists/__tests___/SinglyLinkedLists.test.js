@@ -96,104 +96,99 @@ describe('SinglyLinkedList Class works properly', () => {
     expect(list.get(4)).toMatchObject({ value: 'E' });
   });
 
-  // it('and set(index,value) works fine', () => {
-  //   const list = new SinglyLinkedList();
+  it('and set(index,value) works fine', () => {
+    const list = new SinglyLinkedList();
 
-  //   expect(list.set(0, 1)).toBe(false);
+    expect(list.set(0, 1)).toBe(false);
 
-  //   list.push('A');
-  //   list.push('B');
-  //   list.push('C');
-  //   list.push('D');
-  //   list.push('E');
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
 
-  //   expect(list.set(0, 'a')).toBe(true);
-  //   expect(list.get(0)).toMatchObject({ value: 'a' });
+    expect(list.set(0, 'a')).toBe(true);
+    expect(list.get(0)).toMatchObject({ value: 'a' });
 
-  //   expect(list.set(4, 'e')).toBe(true);
-  //   expect(list.get(4)).toMatchObject({ value: 'e' });
-  // });
+    expect(list.set(4, 'e')).toBe(true);
+    expect(list.get(4)).toMatchObject({ value: 'e' });
+  });
 
-  // it('and insert(index,value) works fine', () => {
-  //   const list = new SinglyLinkedList();
+  it('and insert(index,value) works fine', () => {
+    const list = new SinglyLinkedList();
 
-  //   expect(list.insert(-1, 'A')).toBe(false);
-  //   expect(list.insert(3, 'A')).toBe(false);
+    expect(list.insert(-1, 'A')).toBe(false);
+    expect(list.insert(3, 'A')).toBe(false);
 
-  //   list.push('A');
-  //   list.push('B');
+    list.push('A');
+    list.push('B');
 
-  //   expect(list.insert(2, 'b')).toBe(true);
+    expect(list.insert(2, 'b')).toBe(true);
 
-  //   expect(list.insert(0, 'a')).toBe(true);
+    expect(list.insert(0, 'a')).toBe(true);
 
-  //   expect(list.insert(1, '$')).toBe(true);
+    expect(list.insert(1, '$')).toBe(true);
 
-  //   // should be a<->$<->A<->B<->b at the end
-  //   expect(list.get(0)).toMatchObject({ value: 'a' });
-  //   expect(list.get(1)).toMatchObject({ value: '$' });
-  //   expect(list.get(2)).toMatchObject({ value: 'A' });
-  //   expect(list.get(3)).toMatchObject({ value: 'B' });
-  //   expect(list.get(4)).toMatchObject({ value: 'b' });
+    // should be a<->$<->A<->B<->b at the end
+    expect(list.get(0)).toMatchObject({ value: 'a' });
+    expect(list.get(1)).toMatchObject({ value: '$' });
+    expect(list.get(2)).toMatchObject({ value: 'A' });
+    expect(list.get(3)).toMatchObject({ value: 'B' });
+    expect(list.get(4)).toMatchObject({ value: 'b' });
 
-  //   // testing connections
-  //   expect(list.head.value).toBe('a');
-  //   expect(list.head.next.value).toBe('$');
-  //   expect(list.head.next.next.value).toBe('A');
-  //   expect(list.tail.value).toBe('b');
-  //   expect(list.tail.prev.value).toBe('B');
-  //   expect(list.tail.prev.prev.value).toBe('A');
-  // });
+    // testing connections
+    expect(list.head.value).toBe('a');
+    expect(list.head.next.value).toBe('$');
+    expect(list.head.next.next.value).toBe('A');
+    expect(list.head.next.next.next.value).toBe('B');
+    expect(list.tail.value).toBe('b');
+  });
 
-  // it('and remove(index) works fine', () => {
-  //   const list = new SinglyLinkedList();
+  it('and remove(index) works fine', () => {
+    const list = new SinglyLinkedList();
 
-  //   expect(list.remove(-1)).toBe(undefined);
-  //   expect(list.remove(3)).toBe(undefined);
+    expect(list.remove(-1)).toBe(undefined);
+    expect(list.remove(3)).toBe(undefined);
 
-  //   list.push('A');
-  //   list.push('B');
-  //   list.push('C');
-  //   list.push('D');
-  //   list.push('E');
-  //   list.push('F');
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
+    list.push('F');
 
-  //   expect(list.remove(5)).toMatchObject({ value: 'F' });
-  //   expect(list.remove(0)).toMatchObject({ value: 'A' });
+    expect(list.remove(5)).toMatchObject({ value: 'F' });
+    expect(list.remove(0)).toMatchObject({ value: 'A' });
 
-  //   expect(list.remove(2)).toMatchObject({ value: 'D' });
+    expect(list.remove(2)).toMatchObject({ value: 'D' });
 
-  //   // should be B<->C<->E at the end
-  //   expect(list.get(0)).toMatchObject({ value: 'B' });
-  //   expect(list.get(1)).toMatchObject({ value: 'C' });
-  //   expect(list.get(2)).toMatchObject({ value: 'E' });
+    // should be B<->C<->E at the end
+    expect(list.get(0)).toMatchObject({ value: 'B' });
+    expect(list.get(1)).toMatchObject({ value: 'C' });
+    expect(list.get(2)).toMatchObject({ value: 'E' });
 
-  //   // testing connections
-  //   expect(list.head.value).toBe('B');
-  //   expect(list.head.next.value).toBe('C');
-  //   expect(list.head.next.next.value).toBe('E');
-  //   expect(list.tail.value).toBe('E');
-  //   expect(list.tail.prev.value).toBe('C');
-  //   expect(list.tail.prev.prev.value).toBe('B');
-  // });
+    // testing connections
+    expect(list.head.value).toBe('B');
+    expect(list.head.next.value).toBe('C');
+    expect(list.head.next.next.value).toBe('E');
+    expect(list.tail.value).toBe('E');
+  });
 
-  // it('and reverse() works fine', () => {
-  //   const list = new SinglyLinkedList();
+  it('and reverse() works fine', () => {
+    const list = new SinglyLinkedList();
 
-  //   list.push('A');
-  //   list.push('B');
-  //   list.push('C');
-  //   list.push('D');
-  //   list.push('E');
-  //   list.push('F');
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
+    list.push('F');
 
-  //   list.reverse();
+    list.reverse();
 
-  //   expect(list.tail.next).toBeNull();
-  //   expect(list.tail.value).toBe('A');
-  //   expect(list.tail.prev.value).toBe('B');
-  //   expect(list.head.value).toBe('F');
-  //   expect(list.head.next.value).toBe('E');
-  //   expect(list.head.prev).toBeNull();
-  // });
+    expect(list.tail.next).toBeNull();
+    expect(list.tail.value).toBe('A');
+    expect(list.head.value).toBe('F');
+    expect(list.head.next.value).toBe('E');
+  });
 });
