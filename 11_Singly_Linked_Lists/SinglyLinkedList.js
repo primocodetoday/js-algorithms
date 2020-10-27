@@ -1,14 +1,9 @@
-﻿class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+﻿import { Node } from './Node';
 
 export class SinglyLinkedList {
   constructor() {
-    this.head = 0;
-    this.tail = 0;
+    this.head = null;
+    this.tail = null;
     this.length = 0;
   }
 
