@@ -108,8 +108,6 @@ export class DoublyLinkedList {
   }
 
   insert(index, value) {
-    const newNode = new Node(value);
-
     switch (true) {
       case index < 0 || index > this.length:
         return false;
@@ -120,6 +118,8 @@ export class DoublyLinkedList {
         return !!this.unshift(value);
       default:
     }
+
+    const newNode = new Node(value);
 
     const nextNode = this.get(index);
     const prevNode = nextNode.prev;
@@ -133,24 +133,30 @@ export class DoublyLinkedList {
     return true;
   }
 
-  // remove(index) {
-  //   const prevNode = this.get(index - 1);
-  //   const nextNode = this.get(index + 1);
-  //   const removeNode = this.get(index);
+  remove(index) {
+    switch (true) {
+      case index < 0 || index >= this.length:
+        return undefined;
+      case index === this.length - 1:
+        return this.pop(index);
+      case index === 0:
+        return this.shift();
+      default:
+    }
 
-  //   switch (true) {
-  //     case index < 0 || index >= this.length:
-  //       return undefined;
-  //     case index === this.length - 1:
-  //       return this.pop(index);
-  //     case index === 0:
-  //       return this.shift();
-  //     default:
-  //   }
-  //   prevNode.next = nextNode;
-  //   this.length--;
-  //   return removeNode.value;
-  // }
+    const removeNode = this.get(index);
+    const prevNode = removeNode.prev;
+    const nextNode = removeNode.next;
+
+    prevNode.next = nextNode;
+    nextNode.prev = prevNode;
+
+    removeNode.next = null;
+    removeNode.prev = null;
+
+    this.length--;
+    return removeNode;
+  }
 
   // reverse() {
   //   let currentNode = this.head;

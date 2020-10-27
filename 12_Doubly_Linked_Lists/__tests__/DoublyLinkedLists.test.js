@@ -9,7 +9,7 @@ describe('DoublyLinkedList Class works properly', () => {
     expect(list.tail).toBe(null);
   });
 
-  it('and push() works fine', () => {
+  it('and push(value) works fine', () => {
     const list = new DoublyLinkedList();
 
     list.push(5);
@@ -68,7 +68,7 @@ describe('DoublyLinkedList Class works properly', () => {
     expect(list.shift()).toBe(undefined);
   });
 
-  it('and unshift() works fine', () => {
+  it('and unshift(value) works fine', () => {
     const list = new DoublyLinkedList();
 
     list.unshift(5);
@@ -81,7 +81,7 @@ describe('DoublyLinkedList Class works properly', () => {
     expect(list.tail.prev.value).toBe(10);
   });
 
-  it('and get() works fine', () => {
+  it('and get(index) works fine', () => {
     const list = new DoublyLinkedList();
 
     // edge case
@@ -98,7 +98,7 @@ describe('DoublyLinkedList Class works properly', () => {
     expect(list.get(4)).toMatchObject({ value: 'E' });
   });
 
-  it('and set() works fine', () => {
+  it('and set(index,value) works fine', () => {
     const list = new DoublyLinkedList();
 
     expect(list.set(0, 1)).toBe(false);
@@ -116,7 +116,7 @@ describe('DoublyLinkedList Class works properly', () => {
     expect(list.get(4)).toMatchObject({ value: 'e' });
   });
 
-  it('and insert() works fine', () => {
+  it('and insert(index,value) works fine', () => {
     const list = new DoublyLinkedList();
 
     expect(list.insert(-1, 'A')).toBe(false);
@@ -145,5 +145,37 @@ describe('DoublyLinkedList Class works properly', () => {
     expect(list.tail.value).toBe('b');
     expect(list.tail.prev.value).toBe('B');
     expect(list.tail.prev.prev.value).toBe('A');
+  });
+
+  it('and remove(index) works fine', () => {
+    const list = new DoublyLinkedList();
+
+    expect(list.remove(-1)).toBe(undefined);
+    expect(list.remove(3)).toBe(undefined);
+
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
+    list.push('F');
+
+    expect(list.remove(5)).toMatchObject({ value: 'F' });
+    expect(list.remove(0)).toMatchObject({ value: 'A' });
+
+    expect(list.remove(2)).toMatchObject({ value: 'D' });
+
+    // should be B<->C<->E at the end
+    expect(list.get(0)).toMatchObject({ value: 'B' });
+    expect(list.get(1)).toMatchObject({ value: 'C' });
+    expect(list.get(2)).toMatchObject({ value: 'E' });
+
+    // testing connections
+    expect(list.head.value).toBe('B');
+    expect(list.head.next.value).toBe('C');
+    expect(list.head.next.next.value).toBe('E');
+    expect(list.tail.value).toBe('E');
+    expect(list.tail.prev.value).toBe('C');
+    expect(list.tail.prev.prev.value).toBe('B');
   });
 });
