@@ -178,4 +178,24 @@ describe('DoublyLinkedList Class works properly', () => {
     expect(list.tail.prev.value).toBe('C');
     expect(list.tail.prev.prev.value).toBe('B');
   });
+
+  it('and reverse() works fine', () => {
+    const list = new DoublyLinkedList();
+
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
+    list.push('F');
+
+    list.reverse();
+
+    expect(list.tail.next).toBeNull();
+    expect(list.tail.value).toBe('A');
+    expect(list.tail.prev.value).toBe('B');
+    expect(list.head.value).toBe('F');
+    expect(list.head.next.value).toBe('E');
+    expect(list.head.prev).toBeNull();
+  });
 });

@@ -158,19 +158,22 @@ export class DoublyLinkedList {
     return removeNode;
   }
 
-  // reverse() {
-  //   let currentNode = this.head;
-  //   this.head = this.tail;
-  //   this.tail = currentNode;
+  reverse() {
+    let current = this.head;
+    this.head = this.tail;
+    this.tail = current;
 
-  //   let prevNode = null;
-  //   let nextNode = null;
+    for (let i = 0; i < this.length; i++) {
+      const prev = current.next;
 
-  //   for (let i = 0; i < this.length; i++) {
-  //     nextNode = currentNode.next;
-  //     currentNode.next = prevNode;
-  //     prevNode = currentNode;
-  //     currentNode = nextNode;
-  //   }
-  // }
+      current.next = current.prev;
+      current.prev = prev;
+      current = prev;
+    }
+
+    this.tail.next = null;
+    this.head.prev = null;
+
+    return this;
+  }
 }
