@@ -7,28 +7,19 @@
 // Swap the starting element (i.e. the pivot) with the pivot index
 // Return the pivot index
 
-const swap = (arr, x, y) => {
-  [arr[x], arr[y]] = [arr[y], arr[x]];
-};
+import { swap } from './swap';
 
-const pivot = (array, start = 0, end = array.length + 1) => {
+export const pivot = (array, start = 0, end = array.length - 1) => {
   const piv = array[start];
   let storeIndex = start;
 
-  for (let i = start + 1; i < array.length; i++) {
-    if (array[i] < array[piv]) {
+  for (let i = start + 1; i < end; i++) {
+    if (piv > array[i]) {
       storeIndex++;
-      swap(array, i, storeIndex);
+      swap(array, storeIndex, i);
     }
   }
   // moving pivot to correct position
   swap(array, start, storeIndex);
-
   return storeIndex;
 };
-
-const testArray = [4, 8, 2, 1, 5, 7, 6, 3];
-
-console.log(pivot(testArray));
-
-console.log(testArray);
