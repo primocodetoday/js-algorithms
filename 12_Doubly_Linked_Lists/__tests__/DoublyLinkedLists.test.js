@@ -1,17 +1,19 @@
 ﻿import { DoublyLinkedList } from '../DoublyLinkedLists';
 
 describe('DoublyLinkedList Class works properly', () => {
-  it('and creates new List', () => {
-    const list = new DoublyLinkedList();
+  let list;
 
+  beforeEach(() => {
+    list = new DoublyLinkedList();
+  });
+
+  it('and creates new List', () => {
     expect(list.length).toBe(0);
     expect(list.head).toBe(null);
     expect(list.tail).toBe(null);
   });
 
   it('and push(value) works fine', () => {
-    const list = new DoublyLinkedList();
-
     list.push(5);
     expect(list.length).toBe(1);
     expect(list.head).toEqual({ value: 5, next: null, prev: null });
@@ -24,8 +26,6 @@ describe('DoublyLinkedList Class works properly', () => {
   });
 
   it('and pop() works fine', () => {
-    const list = new DoublyLinkedList();
-
     list.push(5);
     list.push(10);
     list.push(15);
@@ -46,8 +46,6 @@ describe('DoublyLinkedList Class works properly', () => {
   });
 
   it('and shift() works fine', () => {
-    const list = new DoublyLinkedList();
-
     list.push(5);
     list.push(10);
     list.push(15);
@@ -69,8 +67,6 @@ describe('DoublyLinkedList Class works properly', () => {
   });
 
   it('and unshift(value) works fine', () => {
-    const list = new DoublyLinkedList();
-
     list.unshift(5);
     expect(list.head.value).toBe(5);
     expect(list.tail.value).toBe(5);
@@ -82,8 +78,6 @@ describe('DoublyLinkedList Class works properly', () => {
   });
 
   it('and get(index) works fine', () => {
-    const list = new DoublyLinkedList();
-
     // edge case
     expect(list.get(1)).toBe(null);
     expect(list.get(-1)).toBe(null);
@@ -99,8 +93,6 @@ describe('DoublyLinkedList Class works properly', () => {
   });
 
   it('and set(index,value) works fine', () => {
-    const list = new DoublyLinkedList();
-
     expect(list.set(0, 1)).toBe(false);
 
     list.push('A');
@@ -117,8 +109,6 @@ describe('DoublyLinkedList Class works properly', () => {
   });
 
   it('and insert(index,value) works fine', () => {
-    const list = new DoublyLinkedList();
-
     expect(list.insert(-1, 'A')).toBe(false);
     expect(list.insert(3, 'A')).toBe(false);
 
@@ -148,8 +138,6 @@ describe('DoublyLinkedList Class works properly', () => {
   });
 
   it('and remove(index) works fine', () => {
-    const list = new DoublyLinkedList();
-
     expect(list.remove(-1)).toBe(undefined);
     expect(list.remove(3)).toBe(undefined);
 
@@ -180,8 +168,6 @@ describe('DoublyLinkedList Class works properly', () => {
   });
 
   it('and reverse() works fine', () => {
-    const list = new DoublyLinkedList();
-
     list.push('A');
     list.push('B');
     list.push('C');

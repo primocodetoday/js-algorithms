@@ -1,17 +1,19 @@
 ﻿import { SinglyLinkedList } from '../SinglyLinkedList';
 
 describe('SinglyLinkedList Class works properly', () => {
-  it('and creates new List', () => {
-    const list = new SinglyLinkedList();
+  let list;
 
+  beforeEach(() => {
+    list = new SinglyLinkedList();
+  });
+
+  it('and creates new List', () => {
     expect(list.head).toBe(null);
     expect(list.tail).toBe(null);
     expect(list.length).toBe(0);
   });
 
   it('and push(value) works fine', () => {
-    const list = new SinglyLinkedList();
-
     list.push(5);
 
     expect(list.length).toBe(1);
@@ -25,8 +27,6 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and pop() works fine', () => {
-    const list = new SinglyLinkedList();
-
     list.push(5);
     list.push(10);
     list.push(15);
@@ -47,8 +47,6 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and shift() works fine', () => {
-    const list = new SinglyLinkedList();
-
     list.push(5);
     list.push(10);
     list.push(15);
@@ -68,8 +66,6 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and unshift(value) works fine', () => {
-    const list = new SinglyLinkedList();
-
     list.unshift(5);
     expect(list.head.value).toBe(5);
     expect(list.tail.value).toBe(5);
@@ -80,8 +76,6 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and get(index) works fine', () => {
-    const list = new SinglyLinkedList();
-
     // edge case
     expect(list.get(1)).toBe(null);
     expect(list.get(-1)).toBe(null);
@@ -97,8 +91,6 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and set(index,value) works fine', () => {
-    const list = new SinglyLinkedList();
-
     expect(list.set(0, 1)).toBe(false);
 
     list.push('A');
@@ -115,8 +107,6 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and insert(index,value) works fine', () => {
-    const list = new SinglyLinkedList();
-
     expect(list.insert(-1, 'A')).toBe(false);
     expect(list.insert(3, 'A')).toBe(false);
 
@@ -145,8 +135,6 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and remove(index) works fine', () => {
-    const list = new SinglyLinkedList();
-
     expect(list.remove(-1)).toBe(undefined);
     expect(list.remove(3)).toBe(undefined);
 
@@ -175,8 +163,6 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and reverse() works fine', () => {
-    const list = new SinglyLinkedList();
-
     list.push('A');
     list.push('B');
     list.push('C');
