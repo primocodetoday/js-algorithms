@@ -1,52 +1,40 @@
 ﻿import { SinglyLinkedList } from '../SinglyLinkedList';
 
-const handleListTestPusher = (singlyLL) => {
-  singlyLL.push('A');
-  singlyLL.push('B');
-  singlyLL.push('C');
-  singlyLL.push('D');
-  singlyLL.push('E');
-};
-
-describe('SinglyLinkedList Class constructor works properly', () => {
-  it('and creates new empty List', () => {
+describe('SinglyLinkedList Class works properly', () => {
+  it('and creates new List', () => {
     const list = new SinglyLinkedList();
 
     expect(list.head).toBe(null);
     expect(list.tail).toBe(null);
     expect(list.length).toBe(0);
   });
-});
 
-describe('SinglyLinkedList Class method: ', () => {
-  let list;
+  it('and push(value) works fine', () => {
+    const list = new SinglyLinkedList();
 
-  beforeEach(() => {
-    list = new SinglyLinkedList();
-  });
-
-  it('push(value) works fine', () => {
-    list.push('A');
+    list.push(5);
 
     expect(list.length).toBe(1);
-    expect(list.head.value).toBe('A');
-    expect(list.tail.value).toBe('A');
+    expect(list.head.value).toBe(5);
+    expect(list.tail.value).toBe(5);
 
-    list.push('B');
+    list.push(10);
     expect(list.length).toBe(2);
-    expect(list.head.value).toBe('A');
-    expect(list.tail.value).toBe('B');
+    expect(list.head.value).toBe(5);
+    expect(list.tail.value).toBe(10);
   });
 
-  it('pop() works fine', () => {
-    handleListTestPusher(list);
+  it('and pop() works fine', () => {
+    const list = new SinglyLinkedList();
+
+    list.push(5);
+    list.push(10);
+    list.push(15);
 
     list.pop();
-    expect(list.length).toBe(4);
-    expect(list.tail.value).toBe('D');
+    expect(list.length).toBe(2);
+    expect(list.tail.value).toBe(10);
 
-    list.pop();
-    list.pop();
     list.pop();
     expect(list.length).toBe(1);
     expect(list.head.next).toBe(null);
@@ -58,15 +46,17 @@ describe('SinglyLinkedList Class method: ', () => {
     expect(list.pop()).toBe(undefined);
   });
 
-  it('shift() works fine', () => {
-    handleListTestPusher(list);
+  it('and shift() works fine', () => {
+    const list = new SinglyLinkedList();
+
+    list.push(5);
+    list.push(10);
+    list.push(15);
 
     list.shift();
-    expect(list.length).toBe(4);
-    expect(list.head.value).toBe('B');
+    expect(list.length).toBe(2);
+    expect(list.head.value).toBe(10);
 
-    list.shift();
-    list.shift();
     list.shift();
     expect(list.head.next).toBe(null);
 
@@ -77,34 +67,45 @@ describe('SinglyLinkedList Class method: ', () => {
     expect(list.shift()).toBe(undefined);
   });
 
-  it('unshift(value) works fine', () => {
+  it('and unshift(value) works fine', () => {
+    const list = new SinglyLinkedList();
+
     list.unshift(5);
     expect(list.head.value).toBe(5);
-
-    handleListTestPusher(list);
-
-    expect(list.tail.value).toBe('E');
+    expect(list.tail.value).toBe(5);
 
     list.unshift(10);
     expect(list.head.value).toBe(10);
     expect(list.head.next.value).toBe(5);
   });
 
-  it('get(index) works fine', () => {
+  it('and get(index) works fine', () => {
+    const list = new SinglyLinkedList();
+
     // edge case
     expect(list.get(1)).toBe(null);
     expect(list.get(-1)).toBe(null);
 
-    handleListTestPusher(list);
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
 
     expect(list.get(0)).toMatchObject({ value: 'A' });
     expect(list.get(4)).toMatchObject({ value: 'E' });
   });
 
-  it('set(index,value) works fine', () => {
+  it('and set(index,value) works fine', () => {
+    const list = new SinglyLinkedList();
+
     expect(list.set(0, 1)).toBe(false);
 
-    handleListTestPusher(list);
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
 
     expect(list.set(0, 'a')).toBe(true);
     expect(list.get(0)).toMatchObject({ value: 'a' });
@@ -113,7 +114,9 @@ describe('SinglyLinkedList Class method: ', () => {
     expect(list.get(4)).toMatchObject({ value: 'e' });
   });
 
-  it('insert(index,value) works fine', () => {
+  it('and insert(index,value) works fine', () => {
+    const list = new SinglyLinkedList();
+
     expect(list.insert(-1, 'A')).toBe(false);
     expect(list.insert(3, 'A')).toBe(false);
 
@@ -141,11 +144,17 @@ describe('SinglyLinkedList Class method: ', () => {
     expect(list.tail.value).toBe('b');
   });
 
-  it('remove(index) works fine', () => {
+  it('and remove(index) works fine', () => {
+    const list = new SinglyLinkedList();
+
     expect(list.remove(-1)).toBe(undefined);
     expect(list.remove(3)).toBe(undefined);
 
-    handleListTestPusher(list);
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
     list.push('F');
 
     expect(list.remove(5)).toMatchObject({ value: 'F' });
@@ -165,8 +174,14 @@ describe('SinglyLinkedList Class method: ', () => {
     expect(list.tail.value).toBe('E');
   });
 
-  it('reverse() works fine', () => {
-    handleListTestPusher(list);
+  it('and reverse() works fine', () => {
+    const list = new SinglyLinkedList();
+
+    list.push('A');
+    list.push('B');
+    list.push('C');
+    list.push('D');
+    list.push('E');
     list.push('F');
 
     list.reverse();

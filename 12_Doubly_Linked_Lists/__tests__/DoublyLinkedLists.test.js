@@ -1,7 +1,5 @@
 ﻿import { DoublyLinkedList } from '../DoublyLinkedLists';
 
-// TODO DRY CODE with BEFORE
-
 describe('DoublyLinkedList Class works properly', () => {
   it('and creates new List', () => {
     const list = new DoublyLinkedList();
