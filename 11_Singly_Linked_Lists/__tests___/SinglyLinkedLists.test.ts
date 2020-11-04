@@ -1,7 +1,8 @@
-﻿import { SinglyLinkedList } from '../SinglyLinkedList';
+﻿import { Node } from '../Node';
+import { SinglyLinkedList } from '../SinglyLinkedList';
 
 describe('SinglyLinkedList Class works properly', () => {
-  let list;
+  let list: SinglyLinkedList;
 
   beforeEach(() => {
     list = new SinglyLinkedList();
@@ -14,30 +15,30 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and push(value) works fine', () => {
-    list.push(5);
+    list.push('5');
 
     expect(list.length).toBe(1);
-    expect(list.head.value).toBe(5);
-    expect(list.tail.value).toBe(5);
+    expect(list.head!.value).toBe('5');
+    expect(list.tail!.value).toBe('5');
 
-    list.push(10);
+    list.push('10');
     expect(list.length).toBe(2);
-    expect(list.head.value).toBe(5);
-    expect(list.tail.value).toBe(10);
+    expect(list.head!.value).toBe('5');
+    expect(list.tail!.value).toBe('10');
   });
 
   it('and pop() works fine', () => {
-    list.push(5);
-    list.push(10);
-    list.push(15);
+    list.push('5');
+    list.push('10');
+    list.push('15');
 
     list.pop();
     expect(list.length).toBe(2);
-    expect(list.tail.value).toBe(10);
+    expect(list.tail!.value).toBe('10');
 
     list.pop();
     expect(list.length).toBe(1);
-    expect(list.head.next).toBe(null);
+    expect(list.head!.next).toBe(null);
 
     list.pop();
     expect(list.head).toBe(null);
@@ -47,16 +48,16 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and shift() works fine', () => {
-    list.push(5);
-    list.push(10);
-    list.push(15);
+    list.push('5');
+    list.push('10');
+    list.push('15');
 
     list.shift();
     expect(list.length).toBe(2);
-    expect(list.head.value).toBe(10);
+    expect(list.head!.value).toBe('10');
 
     list.shift();
-    expect(list.head.next).toBe(null);
+    expect(list.head!.next).toBe(null);
 
     list.shift();
     expect(list.head).toBe(null);
@@ -66,13 +67,13 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and unshift(value) works fine', () => {
-    list.unshift(5);
-    expect(list.head.value).toBe(5);
-    expect(list.tail.value).toBe(5);
+    list.unshift('5');
+    expect(list.head!.value).toBe('5');
+    expect(list.tail!.value).toBe('5');
 
-    list.unshift(10);
-    expect(list.head.value).toBe(10);
-    expect(list.head.next.value).toBe(5);
+    list.unshift('10');
+    expect(list.head!.value).toBe('10');
+    expect(list.head!.next!.value).toBe('5');
   });
 
   it('and get(index) works fine', () => {
@@ -91,7 +92,7 @@ describe('SinglyLinkedList Class works properly', () => {
   });
 
   it('and set(index,value) works fine', () => {
-    expect(list.set(0, 1)).toBe(false);
+    expect(list.set(0, '1')).toBe(false);
 
     list.push('A');
     list.push('B');
@@ -127,11 +128,11 @@ describe('SinglyLinkedList Class works properly', () => {
     expect(list.get(4)).toMatchObject({ value: 'b' });
 
     // testing connections
-    expect(list.head.value).toBe('a');
-    expect(list.head.next.value).toBe('$');
-    expect(list.head.next.next.value).toBe('A');
-    expect(list.head.next.next.next.value).toBe('B');
-    expect(list.tail.value).toBe('b');
+    expect(list.head!.value).toBe('a');
+    expect(list.head!.next!.value).toBe('$');
+    expect(list.head!.next!.next!.value).toBe('A');
+    expect(list.head!.next!.next!.next!.value).toBe('B');
+    expect(list.tail!.value).toBe('b');
   });
 
   it('and remove(index) works fine', () => {
@@ -156,10 +157,10 @@ describe('SinglyLinkedList Class works properly', () => {
     expect(list.get(2)).toMatchObject({ value: 'E' });
 
     // testing connections
-    expect(list.head.value).toBe('B');
-    expect(list.head.next.value).toBe('C');
-    expect(list.head.next.next.value).toBe('E');
-    expect(list.tail.value).toBe('E');
+    expect(list.head!.value).toBe('B');
+    expect(list.head!.next!.value).toBe('C');
+    expect(list.head!.next!.next!.value).toBe('E');
+    expect(list.tail!.value).toBe('E');
   });
 
   it('and reverse() works fine', () => {
@@ -172,9 +173,9 @@ describe('SinglyLinkedList Class works properly', () => {
 
     list.reverse();
 
-    expect(list.tail.next).toBeNull();
-    expect(list.tail.value).toBe('A');
-    expect(list.head.value).toBe('F');
-    expect(list.head.next.value).toBe('E');
+    expect(list.tail!.next).toBeNull();
+    expect(list.tail!.value).toBe('A');
+    expect(list.head!.value).toBe('F');
+    expect(list.head!.next!.value).toBe('E');
   });
 });
