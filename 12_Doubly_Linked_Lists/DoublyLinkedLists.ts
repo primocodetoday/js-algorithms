@@ -1,20 +1,24 @@
 ﻿import { Node } from './Node';
 
 export class DoublyLinkedList {
+  head: Node | null;
+  tail: Node | null;
+  length: number;
+
   constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
 
-  push(value) {
+  push(value: string) {
     const newNode = new Node(value);
 
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
     } else {
-      this.tail.next = newNode;
+      this.tail!.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
     }
@@ -32,9 +36,9 @@ export class DoublyLinkedList {
       this.head = null;
       this.tail = null;
     } else {
-      this.tail = popped.prev;
-      this.tail.next = null;
-      popped.prev = null;
+      this.tail = popped!.prev;
+      this.tail!.next = null;
+      popped!.prev = null;
     }
     this.length--;
 
@@ -51,7 +55,7 @@ export class DoublyLinkedList {
       this.tail = null;
     } else {
       this.head = oldHead.next;
-      this.head.prev = null;
+      this.head!.prev = null;
       oldHead.next = null;
     }
     this.length--;
@@ -59,7 +63,7 @@ export class DoublyLinkedList {
     return oldHead;
   }
 
-  unshift(value) {
+  unshift(value: string) {
     const newNode = new Node(value);
 
     if (!this.head) {
@@ -75,7 +79,7 @@ export class DoublyLinkedList {
     return this;
   }
 
-  get(index) {
+  get(index: number) {
     if (index < 0 || index >= this.length) return null;
 
     let counter = 0;
@@ -83,14 +87,14 @@ export class DoublyLinkedList {
 
     if (index <= this.length / 2) {
       while (counter !== index) {
-        current = current.next;
+        current = current!.next;
         counter++;
       }
     } else {
       counter = this.length - 1;
       current = this.tail;
       while (counter !== index) {
-        current = current.prev;
+        current = current!.prev;
         counter--;
       }
     }
@@ -98,7 +102,7 @@ export class DoublyLinkedList {
     return current;
   }
 
-  set(index, value) {
+  set(index: number, value: string) {
     const currentNode = this.get(index);
     if (currentNode) {
       currentNode.value = value;
@@ -107,7 +111,7 @@ export class DoublyLinkedList {
     return false;
   }
 
-  insert(index, value) {
+  insert(index: number, value: string) {
     switch (true) {
       case index < 0 || index > this.length:
         return false;
@@ -122,10 +126,10 @@ export class DoublyLinkedList {
     const newNode = new Node(value);
 
     const nextNode = this.get(index);
-    const prevNode = nextNode.prev;
+    const prevNode = nextNode!.prev;
 
-    prevNode.next = newNode;
-    nextNode.prev = newNode;
+    prevNode!.next = newNode;
+    nextNode!.prev = newNode;
     newNode.next = nextNode;
     newNode.prev = prevNode;
 
@@ -133,26 +137,26 @@ export class DoublyLinkedList {
     return true;
   }
 
-  remove(index) {
+  remove(index: number) {
     switch (true) {
       case index < 0 || index >= this.length:
         return undefined;
       case index === this.length - 1:
-        return this.pop(index);
+        return this.pop();
       case index === 0:
         return this.shift();
       default:
     }
 
     const removeNode = this.get(index);
-    const prevNode = removeNode.prev;
-    const nextNode = removeNode.next;
+    const prevNode = removeNode!.prev;
+    const nextNode = removeNode!.next;
 
-    prevNode.next = nextNode;
-    nextNode.prev = prevNode;
+    prevNode!.next = nextNode;
+    nextNode!.prev = prevNode;
 
-    removeNode.next = null;
-    removeNode.prev = null;
+    removeNode!.next = null;
+    removeNode!.prev = null;
 
     this.length--;
     return removeNode;
@@ -164,15 +168,15 @@ export class DoublyLinkedList {
     this.tail = current;
 
     for (let i = 0; i < this.length; i++) {
-      const prev = current.next;
+      const prev = current!.next;
 
-      current.next = current.prev;
-      current.prev = prev;
+      current!.next = current!.prev;
+      current!.prev = prev;
       current = prev;
     }
 
-    this.tail.next = null;
-    this.head.prev = null;
+    this.tail!.next = null;
+    this.head!.prev = null;
 
     return this;
   }

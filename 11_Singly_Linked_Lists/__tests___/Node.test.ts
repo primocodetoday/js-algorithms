@@ -5,5 +5,4 @@ it('Creates Node properly', () => {
 
   expect(newNode.value).toBe('5');
   expect(newNode.next).toBe(null);
-  expect(newNode.prev).toBe(null);
 });
