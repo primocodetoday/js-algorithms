@@ -2,8 +2,9 @@
 // integers and a target average, determine if there is a pair of
 // values in the array where the average of the pair equals the target
 // average. There may be more than one pair that matches the average
+// ts-check
 
-const averagePair = (arr, b) => {
+export const averagePair = <T extends number, Y extends number>(arr: T[], b: Y) => {
   if (arr.length === 0) {
     return false;
   }
@@ -12,7 +13,7 @@ const averagePair = (arr, b) => {
   let end = arr.length - 1;
 
   while (start < end) {
-    const avg = Number.parseFloat((arr[start] + arr[end]) / 2).toFixed(1);
+    const avg = (arr[start] + arr[end]) / 2;
     if (avg < b) {
       start++;
     } else if (avg > b) {
@@ -23,8 +24,3 @@ const averagePair = (arr, b) => {
   }
   return false;
 };
-
-console.log(averagePair([1, 2, 3], 2.5)); // true
-console.log(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8)); // true
-console.log(averagePair([-1, 0, 3, 4, 5, 6], 4.1)); // false
-console.log(averagePair([], 4)); // false
