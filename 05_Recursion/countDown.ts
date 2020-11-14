@@ -1,4 +1,4 @@
-﻿const countDown = (num) => {
+﻿export const countDown = (num: number): void => {
   if (num <= 0) {
     return console.log('finish');
   }
@@ -6,5 +6,3 @@
   num--;
   return countDown(num);
 };
-
-countDown(99);
