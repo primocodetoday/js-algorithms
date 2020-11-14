@@ -1,8 +1,8 @@
 ﻿// with helper method
-const collectOddValues1 = (arr) => {
-  const result = [];
+export const collectOddValues1 = <T extends number>(arr: T[]) => {
+  const result: T[] = [];
 
-  const helper = (helperArr) => {
+  const helper = (helperArr: T[]) => {
     if (helperArr.length === 0) {
       return;
     }
@@ -19,11 +19,9 @@ const collectOddValues1 = (arr) => {
   return result;
 };
 
-console.log(collectOddValues1([1, 2, 3, 4, 5]));
-
 // pure recursion
-const collectOddValues2 = (arr) => {
-  let newArr = [];
+export const collectOddValues2 = <T extends number>(arr: T[]) => {
+  let newArr: T[] = [];
 
   if (arr.length === 0) {
     return newArr;
@@ -37,10 +35,8 @@ const collectOddValues2 = (arr) => {
   return newArr;
 };
 
-console.log(collectOddValues2([1, 2, 3, 4, 5]));
-
-// the easiest way
-const collectOddValues3 = (arr, result = []) => {
+// // the easiest way
+export const collectOddValues3 = <T extends number>(arr: T[], result: T[] = []): T[] => {
   if (!arr.length) return result;
 
   if (arr[0] % 2 !== 0) {
@@ -49,5 +45,3 @@ const collectOddValues3 = (arr, result = []) => {
 
   return collectOddValues3(arr.slice(1), result);
 };
-
-console.log(collectOddValues3([1, 2, 3, 4, 5]));

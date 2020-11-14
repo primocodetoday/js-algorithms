@@ -33,6 +33,7 @@ module.exports = {
     'coverage',
     'babel.config.js',
     'jest.config.js',
+    '05_Recursion/callstack_example.ts',
   ],
 
   // Indicates which provider should be used to instrument code for coverage
