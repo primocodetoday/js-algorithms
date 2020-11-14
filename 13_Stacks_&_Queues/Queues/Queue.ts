@@ -1,6 +1,6 @@
 ﻿import { Node } from './Node';
 
-export class Stack {
+export class Queue {
   first: Node | null;
   last: Node | null;
   size: number;
@@ -11,21 +11,21 @@ export class Stack {
     this.size = 0;
   }
 
-  push(value: string) {
+  enqueue(value: string) {
     const newNode = new Node(value);
     if (!this.first) {
       this.first = newNode;
       this.last = newNode;
     } else {
-      let storedFirst = this.first;
-      this.first = newNode;
-      this.first.next = storedFirst;
+      this.last!.next = newNode;
+      this.last = newNode;
     }
     return ++this.size;
   }
 
-  pop() {
+  dequeue() {
     if (!this.first) return null;
+
     const storedFirst = this.first;
     if (this.first === this.last) {
       this.last = null;
