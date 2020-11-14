@@ -8,7 +8,8 @@
     "url": "https://github.com/primocodetoday/js-algorithms.git"
   },
   "scripts": {
-    "test": "jest --coverage --watchAll",
+    "test": "jest --coverage --watch",
+    "test-all": "jest --coverage --watchAll",
     "make-badges": "istanbul-badges-readme"
   },
   "author": "Primoza",

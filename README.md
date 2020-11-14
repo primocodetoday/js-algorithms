@@ -15,7 +15,7 @@ Repository created to store the knowledge gained while learning advanced program
 
 | Statements                                                            | Branches                                                            | Functions                                                            | Lines                                                            |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-60.5%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-65.9%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-58.33%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-62.08%25-red.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-64.84%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-70.18%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-65.48%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-66.2%25-red.svg) |
 
 ### Scripts ⏯️
 
