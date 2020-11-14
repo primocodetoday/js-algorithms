@@ -1,7 +1,7 @@
 ﻿// !4 = 4 * 3 * 2 * 1
 
 // Loop
-const factorial1 = (num) => {
+export const factorial1 = (num: number) => {
   let total = 1;
   for (let i = num; i > 1; i--) {
     total *= i;
@@ -9,13 +9,9 @@ const factorial1 = (num) => {
   return total;
 };
 
-// console.log(factorial1(3));
-
 // Recursive
-const factorial2 = (num) => {
+export const factorial2 = (num: number): number => {
   if (num === 1) return 1;
 
-  return num * factorial1(num - 1);
+  return num * factorial2(num - 1);
 };
-
-console.log(factorial2(6));
