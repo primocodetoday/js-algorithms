@@ -1,4 +1,4 @@
-﻿import { same1, same2 } from './frequencyPattern1';
+﻿import { same1 } from '../frequencyPattern1';
 
 describe('Functions works properly', () => {
   const testArr1 = [1, 2, 3, 2, 5, 9];
@@ -12,9 +12,10 @@ describe('Functions works properly', () => {
     expect(same1(testArr1, testArr4)).toBeFalsy();
   });
 
-  it('Same2 works properly', () => {
-    // expect(same2(testArr1, testArr2)).toBeTruthy();
-    expect(same2(testArr1, testArr3)).toBeFalsy();
-    expect(same2(testArr1, testArr4)).toBeFalsy();
-  });
+  // it('same2 works properly', () => {
+  //   // expect(same2(testArr1, testArr2)).toBeTruthy();
+  //   expect(same2(testArr1, testArr3)).toBeFalsy();
+  //   expect(same2(testArr1, testArr4)).toBeFalsy();
+  //   expect(same2(testArr1, testArr2)).toBeTruthy();
+  // });
 });

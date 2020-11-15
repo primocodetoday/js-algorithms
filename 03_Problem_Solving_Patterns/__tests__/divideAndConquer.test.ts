@@ -1,4 +1,4 @@
-﻿import { search1, search2 } from './divideAndConquer';
+﻿import { search1, search2 } from '../divideAndConquer';
 
 describe('Functions works properly', () => {
   const testArr = [1, 2, 3, 4, 5, 6];
