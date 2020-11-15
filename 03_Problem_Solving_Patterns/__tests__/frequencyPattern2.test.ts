@@ -1,4 +1,4 @@
-﻿import { validAnagram1, validAnagram2 } from './frequencyPattern2';
+﻿import { validAnagram1, validAnagram2 } from '../frequencyPattern2';
 
 describe('Anagram functions works properly', () => {
   const testStr1 = 'anagram';

@@ -5,3 +5,6 @@
 
 # testing
 /coverage
+
+# local
+.vscode
