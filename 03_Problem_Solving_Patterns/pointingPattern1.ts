@@ -3,7 +3,7 @@
 // Return an array that includes both values that sum to zero or undefined if a pair does not exist
 
 // Naive
-function sumZero1(arr) {
+export const sumZero1 = (arr: number[]) => {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] + arr[j] === 0) {
@@ -12,12 +12,11 @@ function sumZero1(arr) {
     }
   }
   return undefined;
-}
-console.log(sumZero1([5, -4, -3, -2, -1, 0, 2, 3, 4, 8]));
+};
 // Time = 0(n^2)
 
 // Refactored
-function sumZero2(arr) {
+export const sumZero2 = (arr: number[]) => {
   let begin = 0;
   let end = arr.length - 1;
   while (begin < end) {
@@ -32,7 +31,5 @@ function sumZero2(arr) {
     }
   }
   return undefined;
-}
+};
 // Time O(n)
-
-console.log(sumZero2([-5, -4, -3, -2, -1, 0, 2, 3, 4, 8]));

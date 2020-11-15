@@ -6,7 +6,7 @@ describe('Functions works properly', () => {
   const testArr3 = [1, 7, 2, 21, 53];
   const testArr4 = [1, 5, 10, 17, 26, 37];
 
-  it('Same1 works properly', () => {
+  it('same1 works properly', () => {
     expect(same1(testArr1, testArr2)).toBeTruthy();
     expect(same1(testArr1, testArr3)).toBeFalsy();
     expect(same1(testArr1, testArr4)).toBeFalsy();
