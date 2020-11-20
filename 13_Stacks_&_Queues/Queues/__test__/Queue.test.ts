@@ -7,7 +7,7 @@ describe('Queue Class works properly', () => {
     list = new Queue();
   });
 
-  it('and creates new Stack', () => {
+  it('and creates new Queue', () => {
     expect(list.first).toBe(null);
     expect(list.last).toBe(null);
     expect(list.size).toBe(0);

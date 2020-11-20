@@ -1,15 +1,9 @@
 ﻿import { Node } from './Node';
 
 export class Stack {
-  first: Node | null;
-  last: Node | null;
-  size: number;
-
-  constructor() {
-    this.first = null;
-    this.last = null;
-    this.size = 0;
-  }
+  first: Node | null = null;
+  last: Node | null = null;
+  size: number = 0;
 
   push(value: string) {
     const newNode = new Node(value);
