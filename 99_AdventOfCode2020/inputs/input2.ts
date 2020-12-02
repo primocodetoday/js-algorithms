@@ -1,4 +1,4 @@
-﻿4-7 z: zzzfzlzzz
+﻿export const input = `4-7 z: zzzfzlzzz
 3-4 l: blllk
 8-11 j: jjjjjjjgjjjj
 6-7 l: lllhlbl
@@ -997,4 +997,4 @@
 9-10 w: wwwwwwbwwhww
 5-6 g: kgggjg
 4-8 s: ssssssscs
-12-20 t: ttttttltttvttttttttt
+12-20 t: ttttttltttvttttttttt`;

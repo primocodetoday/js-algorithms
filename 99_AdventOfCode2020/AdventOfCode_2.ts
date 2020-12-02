@@ -1,40 +1,37 @@
-﻿const readFile = require('fs').readFileSync;
+﻿export const numberOfValidPasswords1 = (data: string) => {
+  let array = data.split('\n');
+  let valid = 0;
 
-const res = readFile('./inputs/2.input', 'utf-8')
-  .split('\n')
-  .filter((s: any) => s.trim())
-  .filter((line: any) => {
-    const [rule, password] = line.split(': ');
-    let [, min, max, letter] = rule.match(/(\d+)\-(\d+) (\w)/);
-    min = parseInt(min, 10);
-    max = parseInt(max, 10);
-
-    const count = password.split('').filter((l: any) => l === letter).length;
-
-    return count >= min && count <= max;
-  });
-
-const res2 = readFile('./2.input', 'utf-8')
-  .split('\n')
-  .filter((s: any) => s.trim())
-  .filter((line: any) => {
-    const [rule, password] = line.split(': ');
-    let [, min, max, letter] = rule.match(/(\d+)\-(\d+) (\w)/);
-    min = parseInt(min, 10) - 1;
-    max = parseInt(max, 10) - 1;
-
-    const split = password.split('');
-
-    if (split[min] === letter) {
-      if (split[max] !== letter) {
-        return true;
-      }
+  for (const line of array) {
+    let [range, letter, password] = line.split(' ');
+    letter = letter.replace(/.$/, '');
+    let notLetter = new RegExp(`[^${letter}]`, 'g');
+    // remove letters that are not required
+    password = password.replace(notLetter, '');
+    // check remaining characters
+    let checkLength = new RegExp(`^.{${range.replace('-', ',')}}$`, 'g');
+    // remove letters that are not required
+    if (password.match(checkLength)) {
+      valid++;
     }
-    if (split[max] === letter) {
-      if (split[min] !== letter) {
-        return true;
-      }
-    }
-  });
+  }
+  return valid;
+};
 
-console.log(res2.length);
+export const numberOfValidPasswords2 = (data: string) => {
+  let array = data.split('\n');
+  let valid = 0;
+
+  for (const line of array) {
+    let [range, letter, password] = line.split(' ');
+    letter = letter.replace(/.$/, '');
+    let [start, end] = range.split('-');
+    let startN = parseInt(start, 10);
+    let endN = parseInt(end, 10);
+    // check pattern
+    if ((password[startN - 1] == letter) !== (password[endN - 1] == letter)) {
+      valid++;
+    }
+  }
+  return valid;
+};

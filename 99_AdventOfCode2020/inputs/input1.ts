@@ -1,4 +1,4 @@
-﻿export const arr = [
+﻿export const input = [
   2010,
   1856,
   1905,
