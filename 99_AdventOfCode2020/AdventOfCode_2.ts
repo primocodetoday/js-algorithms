@@ -1,37 +1,34 @@
 ﻿export const numberOfValidPasswords1 = (data: string) => {
-  let array = data.split('\n');
-  let valid = 0;
+  let result = data
+    .split('\n')
+    .filter((s: any) => s.trim())
+    .filter((line: any) => {
+      const [rule, password] = line.split(': ');
+      let [, min, max, letter] = rule.match(/(\d+)\-(\d+) (\w)/);
+      min = parseInt(min, 10);
+      max = parseInt(max, 10);
 
-  for (const line of array) {
-    let [range, letter, password] = line.split(' ');
-    letter = letter.replace(/.$/, '');
-    let notLetter = new RegExp(`[^${letter}]`, 'g');
-    // remove letters that are not required
-    password = password.replace(notLetter, '');
-    // check remaining characters
-    let checkLength = new RegExp(`^.{${range.replace('-', ',')}}$`, 'g');
-    // remove letters that are not required
-    if (password.match(checkLength)) {
-      valid++;
-    }
-  }
-  return valid;
+      const count = password.split('').filter((l: any) => l === letter).length;
+      return count >= min && count <= max;
+    });
+  return result.length;
 };
 
 export const numberOfValidPasswords2 = (data: string) => {
-  let array = data.split('\n');
-  let valid = 0;
+  let result = data
+    .split('\n')
+    // .splice(0, 5)
+    .filter((s: any) => s.trim())
+    .filter((line: any) => {
+      const [rule, password] = line.split(': ');
+      let [, min, max, letter] = rule.match(/(\d+)\-(\d+) (\w)/);
+      min = parseInt(min, 10) - 1;
+      max = parseInt(max, 10) - 1;
 
-  for (const line of array) {
-    let [range, letter, password] = line.split(' ');
-    letter = letter.replace(/.$/, '');
-    let [start, end] = range.split('-');
-    let startN = parseInt(start, 10);
-    let endN = parseInt(end, 10);
-    // check pattern
-    if ((password[startN - 1] == letter) !== (password[endN - 1] == letter)) {
-      valid++;
-    }
-  }
-  return valid;
+      const split = password.split('');
+
+      if (split[min] === letter && split[max] !== letter) return true;
+      if (split[max] === letter && split[min] !== letter) return true;
+    });
+  return result.length;
 };
