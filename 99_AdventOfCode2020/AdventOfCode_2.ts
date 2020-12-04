@@ -1,7 +1,7 @@
 ﻿export const numberOfValidPasswords1 = (data: string) => {
   let result = data
     .split('\n')
-    .filter((s: any) => s.trim())
+    .map((s) => s.trim())
     .filter((line: any) => {
       const [rule, password] = line.split(': ');
       let [, min, max, letter] = rule.match(/(\d+)\-(\d+) (\w)/);
@@ -17,8 +17,7 @@
 export const numberOfValidPasswords2 = (data: string) => {
   let result = data
     .split('\n')
-    // .splice(0, 5)
-    .filter((s: any) => s.trim())
+    .map((s) => s.trim())
     .filter((line: any) => {
       const [rule, password] = line.split(': ');
       let [, min, max, letter] = rule.match(/(\d+)\-(\d+) (\w)/);
