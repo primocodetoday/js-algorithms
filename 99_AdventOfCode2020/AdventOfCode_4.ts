@@ -1,8 +1,4 @@
-﻿let required = ['byr', 'ecl', 'eyr', 'hcl', 'hgt', 'iyr', 'pid'];
-
-let checker = (arr: string[], target: string[]) => target.every((v) => arr.includes(v));
-
-export const validPasswords1 = (input: string) => {
+﻿export const validPasswords1 = (input: string) => {
   const result = input
     .trim()
     .split('\n\n')
