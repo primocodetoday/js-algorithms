@@ -1,9 +1,9 @@
 ﻿export class Node {
-  value: string | number;
+  value: number;
   left: Node | null;
   right: Node | null;
 
-  constructor(value: string | number) {
+  constructor(value: number) {
     this.value = value;
     this.left = null;
     this.right = null;
