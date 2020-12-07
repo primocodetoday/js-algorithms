@@ -10,7 +10,7 @@
   - If there is a right property on the node dequeued - add it to the queue
 - Return the variable that stores the values
 
-### Depth-first Search PreOrder (DFS)
+### Depth-first Search (DFS) - PreOrder
 
 - Create a variable to store the values of nodes visited
 - Store the root of the BST in a variable called current
@@ -20,3 +20,32 @@
   - If the node has a right property, call the helper function with the right property on the node
 - Invoke the helper function with the current variable
 - Return the array of values
+
+### Depth-first Search (DFS) - PostOrder
+
+- Create a variable to store the values of nodes visited
+- Store the root of the BST in a variable called current
+- Write a helper function which accepts a node
+  - If the node has a left property, call the helper function with the left property on the node
+  - If the node has a right property, call the helper function with the right property on the node
+  - Push the value of the node to the variable that stores the values
+  - Invoke the helper function with the current variable
+- Return the array of values
+
+### Depth-first Search (DFS) - InOrder
+
+- Create a variable to store the values of nodes visited
+- Store the root of the BST in a variable called current
+- Write a helper function which accepts a node
+  - If the node has a left property, call the helper function with the left property on the node
+  - Push the value of the node to the variable that stores the values
+  - If the node has a right property, call the helper function with the right property on the node
+- Invoke the helper function with the current variable
+- Return the array of values
+
+### BFS vs DFS
+
+- time complexity is the same
+- BFS need space for queue
+- DFS(InOrder) return sorted array
+- DFS(PreOrder) is used for cloning tree
