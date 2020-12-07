@@ -10,7 +10,7 @@
   - If there is a right property on the node dequeued - add it to the queue
 - Return the variable that stores the values
 
-### Depth-first Search (DFS)
+### Depth-first Search PreOrder (DFS)
 
 - Create a variable to store the values of nodes visited
 - Store the root of the BST in a variable called current
