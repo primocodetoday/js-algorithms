@@ -20,8 +20,10 @@
       "error",
       {
         "destructuring": "any",
-        "ignoreReadBeforeAssign": false
+        "ignoreReadBeforeAssign": false,
+        "endOfLine": "auto"
       }
-    ]
+    ],
+    "prettier/prettier": ["error"]
   }
 }
