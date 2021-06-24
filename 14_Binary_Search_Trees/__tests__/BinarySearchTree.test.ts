@@ -1,5 +1,4 @@
-﻿import { Node } from '../Node';
-import { BinarySearchTree } from '../BinarySearchTree';
+﻿import { BinarySearchTree } from '../BinarySearchTree';
 
 describe('BinarySearchTree Class works properly', () => {
   let tree: BinarySearchTree;
