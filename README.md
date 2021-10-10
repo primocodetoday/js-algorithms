@@ -23,3 +23,5 @@ Repository created to store the knowledge gained while learning advanced program
 | ------------- | --------------- |
 | `npm install` | Install project |
 | `npm test`    | Call tests      |
+
+[![wakatime](https://wakatime.com/badge/github/primocodetoday/js-algorithms.svg)](https://wakatime.com/badge/github/primocodetoday/js-algorithms)
