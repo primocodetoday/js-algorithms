@@ -3,6 +3,7 @@
 ### Purpose 💡
 
 Repository created to store the knowledge gained while learning advanced programming.
+
 Time spend in repo: [![wakatime](https://wakatime.com/badge/github/primocodetoday/js-algorithms.svg)](https://wakatime.com/badge/github/primocodetoday/js-algorithms)
 
 ### Tech/framework used 🔧
